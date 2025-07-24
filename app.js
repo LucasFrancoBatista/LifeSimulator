@@ -1,5 +1,5 @@
 /////////////////////////////
-// INFORMAÇÕES BASE DA VIDA
+// INFORMAÇÕES BASE / VIDA
 /////////////////////////////
 
 let felicidade = 60;
@@ -11,16 +11,16 @@ const beleza = Math.floor(Math.random() * 10) + 1;
 let inteligencia = Math.floor(Math.random() * 70) + 1;
 const testeBerçoDeOuro = Math.floor(Math.random() * 1000) + 1;
 const engraçadinho = Math.floor(Math.random() * 100) + 1;
-let berçoDeOuro = testeBerçoDeOuro === 999 ? true : false;
+let berçoDeOuro = testeBerçoDeOuro === 999;
 
 function numeroAleatorioEntre(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let alturaCriança = numeroAleatorioEntre(140, 160);
+let alturaCrianca = numeroAleatorioEntre(140, 160);
 
 /////////////////////////////
-// MODIFICAÇÃO DE VARIÁVEIS
+// AUMENTO / DIMINUIÇÃO DE VARIÁVEIS
 /////////////////////////////
 
 let neutro = 0;
@@ -30,7 +30,7 @@ let medioMais = 7;
 let graveMais = 10;
 
 /////////////////////////////
-// DINHEIRO E PRODUTOS
+// ITENS E VALORES
 /////////////////////////////
 
 let dinheiro = 80;
@@ -41,13 +41,20 @@ let fidgetSpinners = 30;
 let videogame = 700;
 
 /////////////////////////////
-// CRIAÇÃO DO PERSONAGEM
+// INÍCIO DO JOGO
 /////////////////////////////
 
-const nome_char = prompt("Qual nome você deseja dar ao seu personagem?");
+const nome_char = prompt("Qual nome você deseja que seu personagem tenha?");
+
 idade = 8;
 
-alert(`Atualmente, ${nome_char} está na infância, com ${idade} anos. Suas características são: beleza ${beleza}/10, altura ${alturaCriança}cm, inteligência ${inteligencia}/150, engraçado ${engraçadinho}/100. ${nome_char} tem R$${dinheiro} guardados em um cofrinho.`);
+alert(`Atualmente, ${nome_char} está na infância, com ${idade} anos.
+Suas características são:
+- Beleza: ${beleza}/10
+- Altura: ${alturaCrianca} cm
+- Inteligência: ${inteligencia}/150
+- Engraçado: ${engraçadinho}/100
+${nome_char} tem R$${dinheiro} guardados em um cofrinho.`);
 
 /////////////////////////////
 // EVENTO INFÂNCIA 1
@@ -56,67 +63,65 @@ alert(`Atualmente, ${nome_char} está na infância, com ${idade} anos. Suas cara
 let respostaValida = false;
 
 while (!respostaValida) {
-  const escolhaInfancia = prompt("Que pena! Seu priminho estava brincando com você quando quebrou o seu brinquedo favorito. Você quer 'bater' nele ou 'desculpar'?").toLowerCase().trim();
+  const escolhaInfancia = prompt("Que pena! Seu priminho estava brincando com você quando quebrou seu brinquedo favorito. Você quer 'bater' nele ou 'desculpar'?").toLowerCase().trim();
 
   if (escolhaInfancia === "bater") {
     felicidade -= graveMais;
     autocontrole -= baixoMais;
     dinheiro -= 20;
-    alert(`Sua felicidade agora diminuiu por causa do peso na consciência. Agora você está com ${felicidade} pontos de felicidade. Seu autocontrole também caiu, agora está em ${autocontrole}%. Por causa da sua atitude, sua mãe pegou R$20 do seu cofrinho. Agora você está com R$${dinheiro}.`);
+    alert(`Sua felicidade diminuiu pelo peso na consciência. Agora você tem ${felicidade} pontos de felicidade. Seu autocontrole também diminuiu, agora está em ${autocontrole}%. Por causa da sua atitude, sua mãe pegou R$20 do seu cofrinho. Agora você tem R$${dinheiro}.`);
     respostaValida = true;
 
   } else if (escolhaInfancia === "desculpar") {
     autocontrole += baixoMais;
     dinheiro += salario;
-    alert(`Sua felicidade abaixou um pouco, agora está com ${felicidade} pontos. Mas seu autocontrole aumentou para ${autocontrole}%. Pelo seu ato de maturidade, sua mãe decide te dar R$${salario} de presente. Agora você tem R$${dinheiro}.`);
+    alert(`Sua felicidade abaixou um pouco, agora está com ${felicidade} pontos. Mas seu autocontrole aumentou para ${autocontrole}%. Pelo seu ato, sua mãe decidiu te dar R$${salario} de presente. Agora você tem R$${dinheiro}.`);
     respostaValida = true;
 
   } else {
-    alert("Resposta inválida. Por favor, escolha 'bater' ou 'desculpar'.");
+    alert("Resposta inválida. Digite 'bater' ou 'desculpar'.");
   }
 }
 
 /////////////////////////////
-// EVENTO INFÂNCIA 2 OU 3
+// EVENTO INFÂNCIA 2 OU 3 (ALEATÓRIO)
 /////////////////////////////
 
 const numeroRandom = numeroAleatorioEntre(1, 2);
 const numeroAposta = numeroAleatorioEntre(1, 1000);
 
 if (numeroRandom === 1) {
+  // EVENTO INFÂNCIA 2 – APOSTAR OU INVESTIR
   let respostaInfancia2Valida = false;
 
   while (!respostaInfancia2Valida) {
-    const escolhaInfancia2 = prompt("No 6º ano, você estava em uma conversa com dois colegas. Um deles falou que ganhou muito dinheiro apostando no MAC e o outro disse que investiu no tesouro SELIC. Você realmente precisava de grana para comprar um videogame. Você irá 'apostar' ou 'investir'?").toLowerCase().trim();
+    const escolhaInfancia2 = prompt("No 6º ano, você estava conversando com dois colegas. Um disse que ganhou muito dinheiro apostando no MAC, o outro falou que investiu no tesouro SELIC. Você precisa de dinheiro para comprar um videogame. Você irá 'apostar' ou 'investir'?").toLowerCase().trim();
 
     if (escolhaInfancia2 === "apostar") {
       if (numeroAposta === 666) {
-        alert("Você teve muita sorte e ganhou bilhões (o dinheiro do Elon Musk), mas você decidiu tentar a sorte novamente e perdeu tudo. Recomece!");
-        respostaInfancia2Valida = true;
-        setTimeout(() => window.location.reload(), 100);
+        alert("Você teve muita sorte e ganhou 2.141.566.418.580 (o dinheiro do Elon Musk), mas decidiu tentar a sorte novamente e perdeu tudo. Recomece!");
+        window.location.reload();
       } else {
         autocontrole -= 20;
         alert(`Você perdeu a aposta. Seu autocontrole caiu para ${autocontrole}%.`);
-        respostaInfancia2Valida = true;
       }
+      respostaInfancia2Valida = true;
 
     } else if (escolhaInfancia2 === "investir") {
       let investiuQuanto = Number(prompt(`Quanto você deseja investir? Lembrando que você tem R$${dinheiro}.`));
-      let temDinheiroInvestir = false;
-
-      while (!temDinheiroInvestir) {
+      while (true) {
         if (investiuQuanto > dinheiro || isNaN(investiuQuanto) || investiuQuanto <= 0) {
-          alert("Resposta inválida. Digite um valor que você possua e que seja maior que zero.");
+          alert("Valor inválido ou você não tem tanto dinheiro.");
           investiuQuanto = Number(prompt(`Digite um valor válido. Você tem R$${dinheiro}.`));
         } else {
           dinheiro -= investiuQuanto;
           investiuQuanto *= 10;
           dinheiro += investiuQuanto;
-          alert(`No início do 3º ano do ensino médio, você terá R$${dinheiro}.`);
-          temDinheiroInvestir = true;
-          respostaInfancia2Valida = true;
+          alert(`No início do 3º ano do ensino médio você terá R$${dinheiro}!`);
+          break;
         }
       }
+      respostaInfancia2Valida = true;
 
     } else {
       alert("Resposta inválida. Digite 'apostar' ou 'investir'.");
@@ -124,10 +129,15 @@ if (numeroRandom === 1) {
   }
 
 } else {
+  // EVENTO INFÂNCIA 3 – COMPRAR BRINQUEDOS OU POUPAR
   let respostaInfancia3Valida = false;
 
   while (!respostaInfancia3Valida) {
-    const escolhaInfancia3 = prompt(`Novos brinquedos estão na moda: a 'barbie' (R$${barbie}), 'hotwheels' (R$${hotwheels}), 'fidgetspinners' (R$${fidgetSpinners}). Ou você pode criar uma 'poupança' para comprar algo mais necessário ou caro no futuro. O que você irá fazer? Você tem R$${dinheiro}.`).toLowerCase().trim();
+    const escolhaInfancia3 = prompt(`Novos brinquedos estão na moda:
+- 'barbie' R$${barbie}
+- 'hotwheels' R$${hotwheels}
+- 'fidgetSpinners' R$${fidgetSpinners}
+Ou você pode criar uma 'poupança' para algo mais necessário ou caro no futuro. O que irá fazer? Você tem R$${dinheiro}.`).toLowerCase().trim();
 
     if (escolhaInfancia3 === "barbie") {
       dinheiro -= barbie;
@@ -141,7 +151,7 @@ if (numeroRandom === 1) {
       alert(`Você comprou seu Hot Wheels com sucesso! Agora ${nome_char} está com ${felicidade} pontos de felicidade.`);
       respostaInfancia3Valida = true;
 
-    } else if (escolhaInfancia3 === "fidgetspinners") {
+    } else if (escolhaInfancia3 === "fidgetSpinners") {
       dinheiro -= fidgetSpinners;
       felicidade += baixoMais;
       alert(`Você comprou seu Fidget Spinner com sucesso! Agora ${nome_char} está com ${felicidade} pontos de felicidade.`);
@@ -149,148 +159,112 @@ if (numeroRandom === 1) {
 
     } else if (escolhaInfancia3 === "poupança") {
       let pouparQuanto = Number(prompt(`Quanto você deseja poupar? Você tem R$${dinheiro}.`));
-      let temDinheiroPoupar = false;
-
-      while (!temDinheiroPoupar) {
+      while (true) {
         if (pouparQuanto > dinheiro || isNaN(pouparQuanto) || pouparQuanto <= 0) {
-          alert("Resposta inválida. Digite um valor que você possua e que seja maior que zero.");
+          alert("Valor inválido ou você não tem tanto dinheiro.");
           pouparQuanto = Number(prompt(`Digite um valor válido. Você tem R$${dinheiro}.`));
         } else {
           dinheiro -= pouparQuanto;
           pouparQuanto *= 7;
           dinheiro += pouparQuanto;
-          alert(`No início do 3º ano do ensino médio, sua poupança rendeu e você tem R$${dinheiro}.`);
-          temDinheiroPoupar = true;
-          respostaInfancia3Valida = true;
+          alert(`No início do 3º ano do ensino médio você terá R$${dinheiro}!`);
+          break;
         }
       }
+      respostaInfancia3Valida = true;
 
     } else {
-      alert("Resposta inválida. Digite 'barbie', 'hotwheels', 'fidgetspinners' ou 'poupança'.");
+      alert("Resposta inválida. Digite 'barbie', 'hotwheels', 'fidgetSpinners' ou 'poupança'.");
     }
   }
 }
 
 /////////////////////////////
-// EVENTO TERCEIRÃO
+// ADOLESCÊNCIA (TERCEIRÃO)
 /////////////////////////////
 
-const numeroRandom2 = numeroAleatorioEntre(1, 2);
+idade = 17;
+alert(`Agora ${nome_char} está no terceirão, com ${idade} anos.`);
+
+let numeroRandom2 = numeroAleatorioEntre(1, 3);
 
 if (numeroRandom2 === 1) {
-  let escolhaTerceiraoValida = false;
+  let respostaTerceiraoValida = false;
 
-  while (!escolhaTerceiraoValida) {
-    const escolhaTerceirao = prompt(`O último sextou de novembro chegou! Nesta Black Friday, o videogame que você quer há tanto tempo está em promoção, apenas R$${videogame}. ${nome_char} decide 'comprar' ou 'não comprar'?`).toLowerCase().trim();
+  while (!respostaTerceiraoValida) {
+    const escolhaTerceirao = prompt(`O último sextou de novembro chegou! Nesta Black Friday o videogame que você quer há tanto tempo está na promoção, apenas R$${videogame}. Você irá 'comprar' ou 'guardar' o dinheiro?`).toLowerCase().trim();
 
     if (escolhaTerceirao === "comprar") {
-      if (dinheiro < videogame) {
-        alert("Você não tem dinheiro suficiente.");
-      } else {
-        felicidade += graveMais;
+      if (dinheiro >= videogame) {
         dinheiro -= videogame;
-        alert(`Parabéns pela sua aquisição! Agora você está com ${felicidade} pontos de felicidade e R$${dinheiro}.`);
+        felicidade += graveMais;
+        alert(`Você comprou o videogame dos sonhos! Sua felicidade agora é ${felicidade}.`);
+      } else {
+        alert("Você não tem dinheiro suficiente para comprar esse videogame.");
       }
-      escolhaTerceiraoValida = true;
+      respostaTerceiraoValida = true;
 
-    } else if (escolhaTerceirao === "não comprar") {
-      alert(`${nome_char} decidiu que não era a hora certa.`);
-      escolhaTerceiraoValida = true;
+    } else if (escolhaTerceirao === "guardar") {
+      autocontrole += medioMais;
+      alert(`Você preferiu guardar seu dinheiro, parabéns pelo autocontrole! Agora seu autocontrole é ${autocontrole}%.`);
+      respostaTerceiraoValida = true;
 
     } else {
-      alert("Resposta inválida. Digite 'comprar' ou 'não comprar'.");
+      alert("Resposta inválida. Digite 'comprar' ou 'guardar'.");
     }
   }
 
-} else {
-  let escolhaTerceiraoValida2 = false;
+} else if (numeroRandom2 === 2) {
+  let respostaValida = false;
 
-  while (!escolhaTerceiraoValida2) {
-    alert("O provão final do terceirão chegou e você está à beira de reprovar! Seus amigos te convidaram para ir à lanchonete.");
+  while (!respostaValida) {
+    let escolha = prompt("Você descobriu que pode fazer ENEM com treineiro esse ano. Deseja tentar para treinar ou prefere focar nos estudos do colégio? Responda 'tentar' ou 'focar'.").toLowerCase().trim();
 
-    const escolhaTerceirao2 = prompt("O que você irá fazer? 'estudar' ou 'ir à lanchonete'?").toLowerCase().trim();
+    if (escolha === "tentar") {
+      inteligencia += medioMais;
+      alert(`Você teve uma experiência valiosa. Sua inteligência agora é ${inteligencia}.`);
+      respostaValida = true;
 
-    if (escolhaTerceirao2 === "estudar") {
-      let estudarQntoValida = false;
-
-      while (!estudarQntoValida) {
-        const estudarQnto = prompt("Você quer estudar por quanto tempo? 'uma hora', 'duas horas' ou 'três horas'?").toLowerCase().trim();
-
-        if (estudarQnto === "uma hora") {
-          inteligencia += 15;
-        } else if (estudarQnto === "duas horas") {
-          inteligencia += 20;
-        } else if (estudarQnto === "três horas") {
-          inteligencia += 25;
-        } else {
-          alert("Resposta inválida. Escolha 'uma hora', 'duas horas' ou 'três horas'.");
-          continue;
-        }
-
-        let nota = inteligencia / 10;
-        if (nota > 10) nota = 10;
-
-        if (nota < 7) {
-          felicidade -= 10;
-          alert(`${nome_char} tirou ${nota} na prova final, reprovando. Sua mãe ficou decepcionada e sua felicidade caiu para ${felicidade}.`);
-          if (berçoDeOuro) alert("Mas, como sua família é milionária, você não precisará trabalhar mesmo...");
-        } else if (nota >= 7 && nota < 10) {
-          felicidade += 10;
-          alert(`Você passou com ${nota} na prova final! Sua felicidade aumentou para ${felicidade}. Mas sua mãe disse que não fez mais que sua obrigação.`);
-        } else if (nota >= 10) {
-          felicidade += 20;
-          dinheiro += 200;
-          alert(`Você tirou nota ${nota} máxima! Sua mãe te deu R$200 de presente. Agora você tem R$${dinheiro} e ${felicidade} pontos de felicidade.`);
-        }
-
-        estudarQntoValida = true;
-        escolhaTerceiraoValida2 = true;
-      }
-
-    } else if (escolhaTerceirao2 === "ir à lanchonete") {
-      let respostaBarzin = false;
-
-      while (!respostaBarzin) {
-        const pessoaAtraente = prompt("No meio da noite, você encontra uma pessoa atraente. Você quer 'conversar' ou 'deixar para lá'?").toLowerCase().trim();
-
-        if (pessoaAtraente === "conversar") {
-          let conquistador = beleza + engraçadinho;
-          if (conquistador < 67) {
-            felicidade += graveMais;
-            dinheiro -= 60;
-            alert(`Vocês viraram mais que amigos. Agora você tem um(a) parceiro(a)! Sua felicidade é ${felicidade}. Mas gastou R$60 no jantar, sobrando R$${dinheiro}.`);
-            temParceira = true;
-          } else {
-            felicidade -= 3;
-            dinheiro -= 40;
-            alert(`A pessoa não queria nada sério. Sua felicidade caiu para ${felicidade}. Você ainda teve que pagar R$40 do jantar. Agora tem R$${dinheiro}.`);
-            temParceira = false;
-          }
-          respostaBarzin = true;
-          escolhaTerceiraoValida2 = true;
-
-        } else if (pessoaAtraente === "deixar para lá") {
-          alert("Você decidiu não conversar.");
-          respostaBarzin = true;
-          escolhaTerceiraoValida2 = true;
-
-        } else {
-          alert("Resposta inválida. Digite 'conversar' ou 'deixar para lá'.");
-        }
-      }
+    } else if (escolha === "focar") {
+      autocontrole += baixoMais;
+      alert(`Você ganhou mais disciplina para as provas escolares. Seu autocontrole agora é ${autocontrole}%.`);
+      respostaValida = true;
 
     } else {
-      alert("Resposta inválida. Digite 'estudar' ou 'ir à lanchonete'.");
+      alert("Resposta inválida. Digite 'tentar' ou 'focar'.");
+    }
+  }
+
+} else if (numeroRandom2 === 3) {
+  let respostaValida = false;
+
+  while (!respostaValida) {
+    let escolha = prompt("Você foi convidado(a) para uma festa de formatura incrível, mas precisa escolher entre gastar dinheiro na festa ou guardar para o futuro. Escolha 'festa' ou 'guardar'.").toLowerCase().trim();
+
+    if (escolha === "festa") {
+      dinheiro -= 300;
+      felicidade += graveMais;
+      alert(`Você aproveitou muito a festa! Sua felicidade agora é ${felicidade}, mas seu dinheiro caiu para R$${dinheiro}.`);
+      respostaValida = true;
+
+    } else if (escolha === "guardar") {
+      autocontrole += medioMais;
+      alert(`Você guardou o dinheiro. Seu autocontrole agora é ${autocontrole}%.`);
+      respostaValida = true;
+
+    } else {
+      alert("Resposta inválida. Digite 'festa' ou 'guardar'.");
     }
   }
 }
 
 /////////////////////////////
-// VIDA ADULTA
+// VIDA ADULTA (25 anos)
 /////////////////////////////
 
 idade = 25;
-alert(`${nome_char} agora entrou na fase adulta, com ${idade} anos.`);
+alert(`${nome_char} agora está na vida adulta, com ${idade} anos.`);
+
 let numeroRandom3 = numeroAleatorioEntre(1, 3);
 
 if (numeroRandom3 === 1) {
@@ -303,7 +277,7 @@ if (numeroRandom3 === 1) {
       inteligencia += 10;
       felicidade -= 5;
       autocontrole += 5;
-      alert(`Sua inteligência subiu para ${inteligencia}, mas sua felicidade caiu para ${felicidade}. Seu autocontrole agora é ${autocontrole}.`);
+      alert(`Sua inteligência subiu para ${inteligencia}, mas sua felicidade caiu para ${felicidade}. Seu autocontrole agora é ${autocontrole}%.`);
       respostaValida = true;
 
     } else if (resposta === "não") {
@@ -331,7 +305,7 @@ if (numeroRandom3 === 1) {
 
     } else if (resposta === "não") {
       autocontrole += 3;
-      alert(`Você manteve o foco nos estudos/trabalho. Seu autocontrole agora é ${autocontrole}.`);
+      alert(`Você manteve o foco nos estudos/trabalho. Seu autocontrole agora é ${autocontrole}%.`);
       respostaValida = true;
 
     } else {
@@ -382,7 +356,7 @@ if (numeroRandom4 === 1) {
       beleza += 2;
       autocontrole += 5;
       felicidade += 5;
-      alert(`Você está mais bonito(a) e saudável! Sua beleza agora é ${beleza}, autocontrole ${autocontrole} e felicidade ${felicidade}.`);
+      alert(`Você está mais bonito(a) e saudável! Sua beleza agora é ${beleza}, autocontrole ${autocontrole}% e felicidade ${felicidade}.`);
       respostaValida = true;
 
     } else if (resposta === "não") {
@@ -405,7 +379,7 @@ if (numeroRandom4 === 1) {
     if (resposta === "sim") {
       dinheiro += 1000;
       autocontrole -= 5;
-      alert(`Mudança difícil mas rentável! Seu dinheiro agora é R$${dinheiro}, mas seu autocontrole caiu para ${autocontrole}.`);
+      alert(`Mudança difícil mas rentável! Seu dinheiro agora é R$${dinheiro}, mas seu autocontrole caiu para ${autocontrole}%.`);
       respostaValida = true;
 
     } else if (resposta === "não") {
@@ -442,7 +416,7 @@ if (numeroRandom5 === 1) {
 
     } else if (resposta === "não") {
       autocontrole += 5;
-      alert(`Você decidiu economizar. Seu autocontrole agora é ${autocontrole}.`);
+      alert(`Você decidiu economizar. Seu autocontrole agora é ${autocontrole}%.`);
       respostaValida = true;
 
     } else {
@@ -487,7 +461,7 @@ if (numeroRandom5 === 1) {
 
     } else if (resposta === "não") {
       autocontrole -= 5;
-      alert(`Você desistiu facilmente. Seu autocontrole agora é ${autocontrole}.`);
+      alert(`Você desistiu facilmente. Seu autocontrole agora é ${autocontrole}%.`);
       respostaValida = true;
 
     } else {
