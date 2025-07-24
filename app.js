@@ -726,7 +726,6 @@ terceiraIdade();
   avaliar(inteligencia, "inteligência", 100);
   avaliar(beleza, "beleza", 20);
   avaliar(autocontrole, "autocontrole", 100);
-  avaliar(engraçadinho, "engraçado", 100);
   avaliar(dinheiro, "dinheiro", 3000);
 
   alert("🎉 Fim do seu jogo. Obrigado por jogar!");
