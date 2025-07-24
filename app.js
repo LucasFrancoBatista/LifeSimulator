@@ -460,7 +460,7 @@ if (numeroRandom2 == 2) {
 
           alert(`O(A) ${nome_char} tirou ${nota}, reprovando na prova final. Talvez fosse melhor estudar mais? Sua mãe brigou com você, agora você está com ${felicidade} pontos de felicidade.`); 
 
-          alert("Agora, com seu desempenho, poucas empresas estarão interessadas no seu potencial profissional/acadêmico."); 
+          alert("Agora, com seu desempenho, poucas empresas estarão interessadas no seu potencial profissional."); 
 
           if (berçoDeOuro === true) { 
 
@@ -480,7 +480,7 @@ if (numeroRandom2 == 2) {
 
           dinheiro += 200; 
 
-          alert(`Você passou com ${nota} de nota final! E ficou MUITO feliz, ${felicidade} pontos agora. E como recompensa, sua mãe lhe deu 200 reais, agora você está com R$${dinheiro}. Empresas agora estão mais prováveis em notar seu desempenho acadêmico!`); 
+          alert(`Você passou com ${nota} de nota final! E ficou MUITO feliz, ${felicidade} pontos agora. E como recompensa, sua mãe lhe deu 200 reais, agora você está com R$${dinheiro}. Empresas agora estão mais prováveis em notar seu desempenho no exterior!`); 
 
         } 
 
