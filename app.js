@@ -460,7 +460,7 @@ if (numeroRandom2 == 2) {
 
           alert(`O(A) ${nome_char} tirou ${nota}, reprovando na prova final. Talvez fosse melhor estudar mais? Sua mãe brigou com você, agora você está com ${felicidade} pontos de felicidade.`); 
 
-          alert("Agora, com seu desempenho, poucas empresas estarão interessadas no seu potencial profissional."); 
+          alert("Agora, com seu desempenho, poucas empresas estarão interessadas no seu potencial profissional/acadêmico."); 
 
           if (berçoDeOuro === true) { 
 
@@ -480,7 +480,7 @@ if (numeroRandom2 == 2) {
 
           dinheiro += 200; 
 
-          alert(`Você passou com ${nota} de nota final! E ficou MUITO feliz, ${felicidade} pontos agora. E como recompensa, sua mãe lhe deu 200 reais, agora você está com R$${dinheiro}. Empresas agora estão mais prováveis em notar seu desempenho no exterior!`); 
+          alert(`Você passou com ${nota} de nota final! E ficou MUITO feliz, ${felicidade} pontos agora. E como recompensa, sua mãe lhe deu 200 reais, agora você está com R$${dinheiro}. Empresas agora estão mais prováveis em notar seu desempenho acadêmico!`); 
 
         } 
 
@@ -619,7 +619,7 @@ if (numeroRandom3 === 1) {
 idade = 40;
 alert(`${nome_char} agora tem ${idade} anos.`);
 
-let numeroRandom4 = Math.floor(Math.random() * 3) + 1;
+let numeroRandom4 = Math.floor(Math.random() * 2) + 1;
 
 if (numeroRandom4 === 1) {
   let resposta = prompt("Você decidiu começar academia. Vai seguir? 'sim' ou 'não'");
@@ -645,17 +645,6 @@ if (numeroRandom4 === 1) {
     alert(`Você preferiu estabilidade. Felicidade agora é ${felicidade}.`);
   }
 
-} else if (numeroRandom4 === 3) {
-  let resposta = prompt("Te ofereceram participação em um reality show. Aceita? 'sim' ou 'não'");
-  if (resposta == 'sim') {
-    beleza += 3;
-    felicidade += 10;
-    autocontrole -= 5;
-    alert(`Você ficou famoso(a)! Beleza ${beleza}, felicidade ${felicidade}, autocontrole caiu para ${autocontrole}.`);
-  } else {
-    autocontrole += 5;
-    alert(`Você recusou a fama. Autocontrole agora é ${autocontrole}.`);
-  }
 }
 
 /////////////////////////////
