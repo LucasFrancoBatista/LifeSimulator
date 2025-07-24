@@ -451,7 +451,7 @@ if (numeroRandom2 == 2) {
  
 
         const nota = inteligencia / 10; 
-
+        if (nota > 10) {nota = 10;}
  
 
         if (nota <= 7) { 
@@ -662,81 +662,84 @@ if (numeroRandom4 === 1) {
 // TERCEIRA IDADE (65 anos)
 /////////////////////////////
 
-idade = 65;
-alert(`${nome_char} agora está na terceira idade, com ${idade} anos.`);
+function terceiraIdade() {
+  idade = 65;
+  alert(`${nome_char} agora está na terceira idade, com ${idade} anos.`);
 
-let numeroRandom5 = Math.floor(Math.random() * 3) + 1;
+  let numeroRandom5 = Math.floor(Math.random() * 3) + 1;
 
-if (numeroRandom5 === 1) {
-  let resposta = prompt("Te chamaram para viajar pelo mundo. Vai? 'sim' ou 'não'");
-  if (resposta == 'sim') {
-    felicidade += 20;
-    dinheiro -= 1000;
-    alert(`Viagem inesquecível! Felicidade ${felicidade}, dinheiro agora é ${dinheiro}.`);
-  } else {
-    autocontrole += 5;
-    alert(`Você decidiu economizar. Autocontrole agora é ${autocontrole}.`);
+  if (numeroRandom5 === 1) {
+    let resposta = prompt("Te chamaram para viajar pelo mundo. Vai? 'sim' ou 'não'");
+    if (resposta == 'sim') {
+      felicidade += 20;
+      dinheiro -= 1000;
+      alert(`Viagem inesquecível! Felicidade ${felicidade}, dinheiro agora é ${dinheiro}.`);
+    } else {
+      autocontrole += 5;
+      alert(`Você decidiu economizar. Autocontrole agora é ${autocontrole}.`);
+    }
+
+  } else if (numeroRandom5 === 2) {
+    let resposta = prompt("Você começou a ter problemas de memória. Vai ao médico? 'sim' ou 'não'");
+    if (resposta == 'sim') {
+      inteligencia += 5;
+      dinheiro -= 500;
+      alert(`Tratamento ajudou! Inteligência agora é ${inteligencia}, dinheiro ${dinheiro}.`);
+    } else {
+      inteligencia -= 10;
+      felicidade -= 5;
+      alert(`Sua memória piorou. Inteligência ${inteligencia}, felicidade ${felicidade}.`);
+    }
+
+  } else if (numeroRandom5 === 3) {
+    let resposta = prompt("Você quer escrever um livro de memórias? 'sim' ou 'não'");
+    if (resposta == 'sim') {
+      inteligencia += 10;
+      felicidade += 10;
+      alert(`Obra finalizada! Inteligência ${inteligencia}, felicidade ${felicidade}.`);
+    } else {
+      autocontrole -= 5;
+      alert(`Você desistiu facilmente. Autocontrole agora é ${autocontrole}.`);
+    }
   }
 
-} else if (numeroRandom5 === 2) {
-  let resposta = prompt("Você começou a ter problemas de memória. Vai ao médico? 'sim' ou 'não'");
-  if (resposta == 'sim') {
-    inteligencia += 5;
-    dinheiro -= 500;
-    alert(`Tratamento ajudou! Inteligência agora é ${inteligencia}, dinheiro ${dinheiro}.`);
-  } else {
-    inteligencia -= 10;
-    felicidade -= 5;
-    alert(`Sua memória piorou. Inteligência ${inteligencia}, felicidade ${felicidade}.`);
-  }
-
-} else if (numeroRandom5 === 3) {
-  let resposta = prompt("Você quer escrever um livro de memórias? 'sim' ou 'não'");
-  if (resposta == 'sim') {
-    inteligencia += 10;
-    felicidade += 10;
-    alert(`Obra finalizada! Inteligência ${inteligencia}, felicidade ${felicidade}.`);
-  } else {
-    autocontrole -= 5;
-    alert(`Você desistiu facilmente. Autocontrole agora é ${autocontrole}.`);
-  }
+  
 }
+
+terceiraIdade();
 
 /////////////////////////////
 // FINAL DAS ESTATÍSTICAS
 /////////////////////////////
 
-if (inteligencia > 150) inteligencia = 150; 
-if (beleza > 20) beleza = 20; 
-if (autocontrole > 100) autocontrole = 100; 
-if (engraçadinho > 100) engraçadinho = 100; 
 
+  if (inteligencia > 150) inteligencia = 150; 
+  if (beleza > 20) beleza = 20; 
+  if (autocontrole > 100) autocontrole = 100; 
+  if (engraçadinho > 100) engraçadinho = 100; 
 
+  function avaliar(variavel, nome, max) {
+    let mensagem = "";
+    let limiteBaixo = max * 0.5;
+    let limiteMedio = max * 0.75;
 
-
-
-
-function avaliar(variavel, nome, max) {
-  let mensagem = "";
-  let limiteBaixo = max * 0.5;
-  let limiteMedio = max * 0.75;
-
-  if (variavel < limiteBaixo) {
-    mensagem = `❌ Seu(Sua) ${nome} está baixo: ${variavel}/${max}`;
-  } else if (variavel < limiteMedio) {
-    mensagem = `⚠️ Seu(Sua) ${nome} está mediano: ${variavel}/${max}`;
-  } else {
-    mensagem = `✅ Seu(Sua) ${nome} está excelente: ${variavel}/${max}`;
+    if (variavel < limiteBaixo) {
+      mensagem = `❌ Seu(Sua) ${nome} está baixo: ${variavel}/${max}`;
+    } else if (variavel < limiteMedio) {
+      mensagem = `⚠️ Seu(Sua) ${nome} está mediano: ${variavel}/${max}`;
+    } else {
+      mensagem = `✅ Seu(Sua) ${nome} está excelente: ${variavel}/${max}`;
+    }
+    alert(mensagem);
   }
-  alert(mensagem);
-}
 
-avaliar(felicidade, "felicidade", 100);
-avaliar(inteligencia, "inteligência", 100);
-avaliar(beleza, "beleza", 20);
-avaliar(autocontrole, "autocontrole", 100);
-avaliar(engraçadinho, "engraçado", 100);
-avaliar(dinheiro, "dinheiro", 3000);
+  avaliar(felicidade, "felicidade", 100);
+  avaliar(inteligencia, "inteligência", 100);
+  avaliar(beleza, "beleza", 20);
+  avaliar(autocontrole, "autocontrole", 100);
+  avaliar(engraçadinho, "engraçado", 100);
+  avaliar(dinheiro, "dinheiro", 3000);
 
-alert("🎉 Fim do seu jogo. Obrigado por jogar!");
-console.log("Script finalizado.");
+  alert("🎉 Fim do seu jogo. Obrigado por jogar!");
+  console.log("Script finalizado.");
+ 
